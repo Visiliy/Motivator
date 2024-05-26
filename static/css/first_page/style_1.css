@@ -107,20 +107,33 @@ img.background {
     top: 95%;
     left: 30%;
     transform: translate(+50%, +50%);
-    margin-top: 30%;
+    margin-top: 28%;
     padding: 8px;
     width: 30%;
     border-radius: 20px;
 }
 
-.input_1 {
-     width: 100%;
+.test_div {
+    position: absolute;
+    background-color: #fff;
+    top: 95%;
+    left: 30%;
+    transform: translate(+50%, +50%);
+    margin-top: 25%;
+    padding: 8px;
+    width: 30%;
+    height: 200px;
+    border-radius: 20px;
 }
 
 .cmaylic {
     border: none;
     background-color: #fff;
     display:inline-block;
+}
+
+.display_none {
+    display: none;
 }
 
 .cmaylic:hover {
