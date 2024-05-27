@@ -122,7 +122,7 @@ img.background {
     margin-top: 25%;
     padding: 8px;
     width: 40%;
-    height: 200px;
+    height: 240px;
     border-radius: 20px;
 }
 
@@ -142,6 +142,16 @@ img.background {
     background-color: aqua;
 }
 
+.btn_3 {
+    width: 130px;
+    border-radius: 10px;
+    padding: 8px;
+    background-color: rgb(187, 15, 225);
+    border: none;
+    margin-top: 15px;
+    user-select: none;
+}
+
 .cmaylic:hover {
     transform: scale(1.2);
 }
@@ -153,4 +163,9 @@ img.background {
 
 .btn_2:hover {
     transform: scale(0.9);
+}
+
+.btn_3:hover {
+    transform: scale(0.9);
+    background-color: rgb(155, 3, 189);
 }
