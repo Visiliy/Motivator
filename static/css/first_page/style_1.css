@@ -152,6 +152,27 @@ img.background {
     user-select: none;
 }
 
+.card_form {
+    position: absolute;
+    background-color: #fff;
+    top: 95%;
+    left: 20%;
+    transform: translate(+50%, +50%);
+    margin-top: 25%;
+    padding: 8px;
+    width: 40%;
+    height: 240px;
+    border-radius: 20px;
+}
+
+.h2_form_div {
+    text-align: center;
+}
+
+.margin_top {
+    margin-top: 25px;
+}
+
 .cmaylic:hover {
     transform: scale(1.2);
 }
