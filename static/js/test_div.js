@@ -16,7 +16,7 @@ const label_2 = document.querySelector('#label_2');
 const label_3 = document.querySelector('#label_3');
 
 const answer_1 = document.querySelector('#answer_1');
-const answer_2 = document.querySelector('#answer_1');
+const answer_2 = document.querySelector('#answer_2');
 const answer_3 = document.querySelector('#answer_3');
 const btn_3 = document.querySelector('#btn_3');
 
@@ -31,6 +31,7 @@ const object_1 = {1: ['Как часто у вас такое состояние
 const object_2 = {1: ['Как часто у вас такое состояние?', 'Каждый день', 'Каждую неделю', 'Каждый месяц'], 2: ['Что приводит вас к такому состоянию?', 'Неудачи', 'Всё идёт не по плану', 'Сам себе не нравлюсь']}
 let default_object;
 let count = 0;
+let rate_value = [];
 
 const func = function(array) {
     test_div.classList.add('display_none');
@@ -43,15 +44,18 @@ const func = function(array) {
 
     if (array[1] != undefined) {
         label_1.innerText = array[1];
+        answer_1.value = array[1];
     }
 
     if (array[2] != undefined) {
         label_2.innerText = array[2];
+        answer_2.value = array[2];
 
     }
 
     if (array[3] != undefined) {
         label_3.innerText = array[3];
+        answer_3.value = array[3];
     }
 }
 
@@ -75,16 +79,18 @@ const func_2 = function(string) {
 }
 
 btn_3.onclick = function() {
-    let rate_value;
     if (document.querySelector('#answer_1').checked) {
-        rate_value = document.querySelector('#answer_1').value;
+        rate_value.push(document.querySelector('#answer_1').value);
     }
     if (document.querySelector('#answer_2').checked) {
-        rate_value = document.querySelector('#answer_2').value;
+        rate_value.push(document.querySelector('#answer_2').value);
     }
     if (document.querySelector('#answer_3').checked) {
-        rate_value = document.querySelector('#answer_3').value;
+        rate_value.push(document.querySelector('#answer_3').value);
     }
+    answer_1.checked = false;
+    answer_2.checked = false;
+    answer_3.checked = false;
     count ++;
     console.log(rate_value);
     const list = default_object[count];
@@ -94,15 +100,18 @@ btn_3.onclick = function() {
 
     if (list[1] != undefined) {
         label_1.innerText = list[1];
+        answer_1.value = list[1];
     }
 
     if (list[2] != undefined) {
         label_2.innerText = list[2];
+        answer_2.value = list[2];
 
     }
 
     if (list[3] != undefined) {
         label_3.innerText = list[3];
+        answer_3.value = list[3];
     }
 
 };
