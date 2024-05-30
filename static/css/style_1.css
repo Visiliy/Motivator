@@ -173,6 +173,24 @@ img.background {
     margin-top: 25px;
 }
 
+.btn_result {
+    width: 100%;
+    padding: 6px;
+    background-color: rgb(187, 15, 225);
+    border-radius: 20px;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.position {
+    position: relative;
+}
+
 .cmaylic:hover {
     transform: scale(1.2);
 }
@@ -188,5 +206,10 @@ img.background {
 
 .btn_3:hover {
     transform: scale(0.9);
+    background-color: rgb(155, 3, 189);
+}
+
+.btn_result:hover {
+    transform: scale(0.98);
     background-color: rgb(155, 3, 189);
 }

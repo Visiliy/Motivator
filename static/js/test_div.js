@@ -26,16 +26,20 @@ const string_3 = 'Как хорошо, что у Вас праздничное �
 
 const array_1 = ['Почему Вы плачете?', 'Всё идёт не так', 'Кто-то обижает', 'Чувствую моральную боль'];
 const array_2 = ['Что вас огорчает?', 'Работа', 'Учёба', 'Жизнь'];
+const array_3 = ['Почему Вы грустите?', 'Плохое настроение', 'Что-то не получается', 'Просто такое настроение'];
+const array_4 = ['Почему у Вас состояние безразличия?', 'Потерян смысл жизни', 'Затяжная грусть', 'Не могу определиться по жизни'];
 
 const object_1 = {1: ['Как часто у вас такое состояние?', 'Каждый день', 'Каждую неделю', 'Каждый месяц'], 2: ['Как скоро проходит это состояние?', 'Через день', 'Через неделю', 'Вообще не проходит!']};
 const object_2 = {1: ['Как часто у вас такое состояние?', 'Каждый день', 'Каждую неделю', 'Каждый месяц'], 2: ['Что приводит вас к такому состоянию?', 'Неудачи', 'Всё идёт не по плану', 'Сам себе не нравлюсь']}
 let default_object;
 let count = 0;
+let num;
 let rate_value = [];
 
-const func = function(array) {
+const func = function(array, num_func) {
     test_div.classList.add('display_none');
     test_div.classList.remove('display_none');
+    num = num_func;
 
 
     if (array[0] != undefined) {
@@ -65,6 +69,7 @@ const func_2 = function(string) {
 
     const h2 = document.createElement('h2');
     const h4 = document.createElement('h4');
+    const btn = document.createElement('button');
 
     h2.innerText = 'Пожелания';
     h2.classList.add('h2_form_div');
@@ -73,8 +78,12 @@ const func_2 = function(string) {
     h4.classList.add('h2_form_div');
     h4.classList.add('margin_top');
 
+    btn.innerText = 'Окей';
+    btn.classList.add('btn_result');
+
     card_form.append(h2);
     card_form.append(h4);
+    card_form.append(btn);
 
 }
 
@@ -92,48 +101,57 @@ btn_3.onclick = function() {
     answer_2.checked = false;
     answer_3.checked = false;
     count ++;
-    console.log(rate_value);
-    const list = default_object[count];
-    if (list[0] != undefined) {
-        test_question.innerText = list[0];
-    }
+    if (count == num) {
+        const result = document.querySelector('#result');
+        test_div.classList.add('display_none');
+        result.classList.remove('display_none');
 
-    if (list[1] != undefined) {
-        label_1.innerText = list[1];
-        answer_1.value = list[1];
-    }
-
-    if (list[2] != undefined) {
-        label_2.innerText = list[2];
-        answer_2.value = list[2];
+        const h2 = document.createElement('h2');
+        h2.innerText = 'Пожелания';
+        h2.classList.add('h2_form_div');
+        result.append(h2);
 
     }
+    else {
+        const list = default_object[count];
+        if (list[0] != undefined) {
+            test_question.innerText = list[0];
+        }
 
-    if (list[3] != undefined) {
-        label_3.innerText = list[3];
-        answer_3.value = list[3];
+        if (list[1] != undefined) {
+            label_1.innerText = list[1];
+            answer_1.value = list[1];
+        }
+
+        if (list[2] != undefined) {
+            label_2.innerText = list[2];
+            answer_2.value = list[2];
+
+        }
+
+        if (list[3] != undefined) {
+            label_3.innerText = list[3];
+            answer_3.value = list[3];
+        }
     }
 
 };
 
 btn_smiley_1.onclick = function() {
-    func(array_1), default_object = object_1;
+    func(array_1, 3), default_object = object_1;
 };
 btn_smiley_2.onclick = function() {
-    func(array_2), default_object = object_2;
+    func(array_2, 3), default_object = object_2;
 };
 btn_smiley_3.onclick = function() {
     func_2(string_1);
 };
-btn_smiley_1.addEventListener('click', function() {
-    func(1);
-});
-btn_smiley_4.addEventListener('click', function() {
-    func(4);
-});
-btn_smiley_5.addEventListener('click', function() {
-    func(5);
-});
+btn_smiley_4.onclick = function() {
+    func(array_3, 1), default_object = 0;
+};
+btn_smiley_5.onclick = function() {
+    func(array_4, 1), default_object = 0;
+};
 btn_smiley_6.onclick = function() {
     func_2(string_2);
 };
