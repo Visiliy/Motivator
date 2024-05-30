@@ -107,9 +107,16 @@ btn_3.onclick = function() {
         result.classList.remove('display_none');
 
         const h2 = document.createElement('h2');
+        const btn = document.createElement('button');
+
+        btn.innerText = 'Окей';
+        btn.classList.add('btn_result');
+
         h2.innerText = 'Пожелания';
         h2.classList.add('h2_form_div');
+
         result.append(h2);
+        result.append(btn);
 
     }
     else {

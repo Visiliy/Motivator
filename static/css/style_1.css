@@ -177,7 +177,8 @@ img.background {
     width: 100%;
     padding: 6px;
     background-color: rgb(187, 15, 225);
-    border-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
     border: none;
     position: absolute;
     bottom: 0;
@@ -212,4 +213,5 @@ img.background {
 .btn_result:hover {
     transform: scale(0.98);
     background-color: rgb(155, 3, 189);
+    border-radius: 20px;
 }
