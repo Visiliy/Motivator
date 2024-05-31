@@ -32,7 +32,7 @@ img.background {
     margin-left: -8px;
     position: absolute;
     width: 100%;
-    background-color: rgb(63, 68, 60);
+    background-color: #181818;
     padding: 8px;
     left: 0;
 }
@@ -44,18 +44,17 @@ img.background {
     top: +20px;
     font-size: 34px;
     user-select: none;
+    color: #fff;
 }
-
-.span {
+.form_div {
     position: absolute;
-    background-color: rgb(187, 15, 225);
-    top: 95%;
-    left: 20%;
-    transform: translate(+50%, +50%);
-    margin-top: 28%;
+    background-color: aqua;
+    margin-top: 7%;
     padding: 8px;
-    width: 30%;
+    width: 44%;
+    left: 28%;
     border-radius: 20px;
+    aspect-ratio: 5/4.8;
 }
 
 .span_btn {
@@ -69,7 +68,22 @@ img.background {
     width: 100px;
     border: none;
     border-radius: 20px;
-    padding: 8px;
-    background-color: rgb(251, 244, 28);
+    padding: 12px;
+    background-color: #fff;
     user-select: none;
+}
+
+.btn_3 {
+    position: absolute;
+    right: 10px;
+}
+
+.btn_1 {
+    position: absolute;
+    left: 10px;
+}
+
+.btn_2:hover {
+    transform: scale(0.9);
+    cursor: pointer;
 }
