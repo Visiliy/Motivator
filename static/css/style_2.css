@@ -13,5 +13,63 @@ img.background {
 .div_main {
     width: 100%;
     height: 100%;
+    left: 0;
     position: relative;
+}
+
+.logotip {
+    border-radius: 50%;
+    width: 85px;
+    height: 85px;
+    margin-left: 20px;
+    float: left;
+    user-select: none;
+}
+
+.span_block {
+    display: inline-block;
+    margin-top: -8px;
+    margin-left: -8px;
+    position: absolute;
+    width: 100%;
+    background-color: rgb(63, 68, 60);
+    padding: 8px;
+    left: 0;
+}
+
+.motiv {
+    padding: 10px;
+    font-weight: bold;
+    position: relative;
+    top: +20px;
+    font-size: 34px;
+    user-select: none;
+}
+
+.span {
+    position: absolute;
+    background-color: rgb(187, 15, 225);
+    top: 95%;
+    left: 20%;
+    transform: translate(+50%, +50%);
+    margin-top: 28%;
+    padding: 8px;
+    width: 30%;
+    border-radius: 20px;
+}
+
+.span_btn {
+    position: absolute;
+    right: 2%;
+    top: +30px;
+    user-select: none;
+}
+
+.btn_2 {
+    width: 100px;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    background-color: rgb(251, 244, 28);
+    user-select: none;
 }
