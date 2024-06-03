@@ -14,5 +14,11 @@ def entrance():
         return render_template('entrance.html')
 
 
+@app.route('/registrations', methods=['GET', 'POST'])
+def registrations():
+    if request.method == 'GET':
+        return render_template('registrations.html')
+
+
 if __name__ == "__main__":
     app.run()
