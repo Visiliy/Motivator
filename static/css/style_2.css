@@ -49,12 +49,12 @@ img.background {
 .form_div {
     position: absolute;
     background-color: aqua;
-    margin-top: 7%;
+    margin-top: 8%;
     padding: 8px;
-    width: 44%;
-    left: 28%;
+    width: 35%;
+    left: 32%;
     border-radius: 20px;
-    aspect-ratio: 5/4.8;
+    aspect-ratio: 5/5.6;
 }
 
 .span_btn {
@@ -75,15 +75,73 @@ img.background {
 
 .btn_3 {
     position: absolute;
-    right: 10px;
+    right: 35px;
 }
 
 .btn_1 {
     position: absolute;
-    left: 10px;
+    left: 35px;
+}
+
+.btn {
+    border: none;
+    width: 210px;
+    padding: 12px;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    color: aqua;
+    background-color: #181818;
+    user-select: none;
+}
+
+.input {
+    width: 90%;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    user-select: none;
+}
+
+.input_1 {
+    margin-top: 30%;
+}
+
+.input_2 {
+    margin-top: 10%;
+}
+
+.btn_4 {
+    width: 90%;
+    height: 40px;
+    background-color: #181818;
+    user-select: none;
+    color: aqua;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    margin-top: 10%;
+}
+
+.btn_1:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.btn_3:hover {
+    transform: scale(0.9);
+    cursor: pointer;
 }
 
 .btn_2:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+.btn_4:hover {
     transform: scale(0.9);
     cursor: pointer;
 }
