@@ -11,13 +11,13 @@ def index():
 @app.route('/entrance', methods=['GET', 'POST'])
 def entrance():
     if request.method == 'GET':
-        return render_template('entrance.html')
+        return render_template('form_1.html')
 
 
 @app.route('/registrations', methods=['GET', 'POST'])
 def registrations():
     if request.method == 'GET':
-        return render_template('registrations.html')
+        return render_template('form_2.html')
 
 
 if __name__ == "__main__":
