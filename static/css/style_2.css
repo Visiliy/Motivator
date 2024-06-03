@@ -55,6 +55,7 @@ img.background {
     left: 32%;
     border-radius: 20px;
     aspect-ratio: 5/5.6;
+    user-select: none;
 }
 
 .span_btn {
