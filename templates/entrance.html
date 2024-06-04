@@ -7,12 +7,27 @@
 </head>
 <body>
 <div class="div_main">
-    <img src="/static/img/sea-blue-ocean-beach-emerald.jpg" class="background"/>
+    <img src="/static/img/zakat_2.jpg" class="background"/>
     <span class="span_block"><img class="logotip" src="/static/img/motivator_logo.jpg"><span
             class="motiv">Мотиватор</span></span>
     <span class="span_btn"><button class="btn_2" id="btn_redirect_2">На главную</button></span>
-    {% block content %}
-    {% endblock %}
+    <center>
+        <div class="form_div">
+        <span class="span"><button class="btn_1 btn" id="btn_1">Войти</button>
+                <button class="btn_3 btn" id="btn_3">Зарегистрироваться</button></span>
+            <form method="post">
+                <input type="text" name="name" id="name" class="input_1 input" placeholder="Имя" required>
+                <input type="text" name="nickname" id="nickname" class="input_2 input" placeholder="Никнейм" required>
+                <input type="text" name="password" id="password" class="input_2 input" placeholder="Пароль" required>
+                {% block content %}
+                {% endblock %}
+                <input type="email" name="mail" id="mail" class="input_2 input" placeholder="Почта" required>
+                <button class="btn_4">Войти</button>
+            </form>
+        </div>
+        <script src="/static/js/btn_redirect_3.js"></script>
+        <script src="/static/js/btn_redirect_4.js"></script>
+    </center>
 </div>
 <script src="/static/js/btn_redirect_2.js"></script>
 </body>
