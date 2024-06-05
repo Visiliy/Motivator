@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -21,7 +21,10 @@ class Users(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('main.html')
+    name = ''
+    if 'name' in session:
+        name = session['name']
+    return render_template('main.html', name=name)
 
 
 @app.route('/entrance', methods=['GET', 'POST'])
@@ -56,6 +59,7 @@ def registrations():
         db.session.add(users)
         db.session.flush()
         db.session.commit()
+        session['name'] = answer_1
         return redirect('/')
 
 
