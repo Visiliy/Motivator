@@ -39,7 +39,7 @@ def entrance():
         answer_4 = request.form.get('mail')
         answer_1 = answer_1.title()
         answer_2 = answer_2.title()
-        return render_template('form_3.html')
+        return redirect('/sms_code')
 
 
 @app.route('/registrations', methods=['GET', 'POST'])
@@ -60,6 +60,17 @@ def registrations():
         db.session.flush()
         db.session.commit()
         session['name'] = answer_1
+        session['nickname'] = answer_2
+        session['password'] = answer_3
+        session['mail'] = answer_5
+        return redirect('/sms_code')
+
+
+@app.route('/sms_code', methods=['GET', 'POST'])
+def sms_code():
+    if request.method == 'GET':
+        return render_template('SMS_form.html')
+    elif request.method == 'POST':
         return redirect('/')
 
 
