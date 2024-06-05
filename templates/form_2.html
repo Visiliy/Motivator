@@ -1,7 +1,10 @@
-{% extends 'entrance.html' %}
+{% extends 'form.html' %}
 
 {% block content %}
 
-<input type="text" name="repeat_the_password" id="repeat_the_password" class="input_2 input" placeholder="Повторите пароль" required>
+<div class="field">
+    <input type="password" name="repeat_the_password" required>
+    <label>Повторите пароль</label>
+</div>
 
 {% endblock %}

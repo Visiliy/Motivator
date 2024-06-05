@@ -36,7 +36,7 @@ def entrance():
         answer_4 = request.form.get('mail')
         answer_1 = answer_1.title()
         answer_2 = answer_2.title()
-        return render_template('entrance.html')
+        return render_template('form.html')
 
 
 @app.route('/registrations', methods=['GET', 'POST'])
@@ -52,10 +52,10 @@ def registrations():
         answer_1 = answer_1.title()
         answer_2 = answer_2.title()
         pass_1 = generate_password_hash(answer_3)
-        users = Users(name=answer_1, nickname=answer_2, password=pass_1, mail=answer_5)
-        db.session.add(users)
-        db.session.flush()
-        db.session.commit()
+        # users = Users(name=answer_1, nickname=answer_2, password=pass_1, mail=answer_5)
+        # db.session.add(users)
+        # db.session.flush()
+        # db.session.commit()
         return redirect('/')
 
 
