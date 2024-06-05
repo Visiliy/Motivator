@@ -3,8 +3,16 @@
 {% block content %}
 
 <div class="field">
-    <input type="password" name="repeat_the_password" required>
+    <input type="text" name="repeat_the_password" required>
     <label>Повторите пароль</label>
+</div>
+
+{% endblock %}
+
+{% block content_2 %}
+
+<div class="signup-link">
+    Есть аккаунт? <a href="/entrance">Войди!</a>
 </div>
 
 {% endblock %}

@@ -24,7 +24,7 @@
             <label>Почта</label>
         </div>
         <div class="field">
-            <input type="password" name="password" required>
+            <input type="text" name="password" required>
             <label>Пароль</label>
         </div>
         {% block content %}
@@ -32,9 +32,8 @@
         <div class="field">
             <input type="submit" value="Вход">
         </div>
-        <div class="signup-link">
-            Нет аккаунта? <a href="#">Зарегистрируйся!</a>
-        </div>
+        {% block content_2 %}
+        {% endblock %}
     </form>
 </div>
 </body>
