@@ -20,10 +20,6 @@
             <label>Никнейм</label>
         </div>
         <div class="field">
-            <input type="text" name="mail" required>
-            <label>Почта</label>
-        </div>
-        <div class="field">
             <input type="text" name="password" required>
             <label>Пароль</label>
         </div>
@@ -36,5 +32,6 @@
         {% endblock %}
     </form>
 </div>
+<h4 class="error" style="bottom: 90%; {{ display_none }}">{{ error }}</h4>
 </body>
 </html>

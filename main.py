@@ -22,15 +22,16 @@ class Users(db.Model):
 @app.route('/')
 def index():
     name = ''
+    profile = 'profil.png'
     if 'name' in session:
         name = session['name']
-    return render_template('main.html', name=name)
+    return render_template('main.html', name=name, profile=profile)
 
 
 @app.route('/entrance', methods=['GET', 'POST'])
 def entrance():
     if request.method == 'GET':
-        return render_template('form_3.html')
+        return render_template('form_3.html', display_none='display: none;')
 
     elif request.method == 'POST':
         answer_1 = request.form.get('name')
@@ -45,8 +46,9 @@ def entrance():
 @app.route('/registrations', methods=['GET', 'POST'])
 def registrations():
     if request.method == 'GET':
-        return render_template('form_2.html')
+        return render_template('form_2.html', display_none='display: none;')
     elif request.method == 'POST':
+        error = ''
         answer_1 = request.form.get('name')
         answer_2 = request.form.get('nickname')
         answer_3 = request.form.get('password')
@@ -54,6 +56,14 @@ def registrations():
         answer_5 = request.form.get('mail')
         answer_1 = answer_1.title()
         answer_2 = answer_2.title()
+        if Users.query.filter_by(nickname=answer_2).first():
+            error += 'Вы уже есть в системе'
+        if answer_3 != answer_4:
+            if error != '':
+                error += '.  '
+            error += 'Пароли не совпадают'
+        if error != '':
+            return render_template('form_2.html', display_none='', error=error)
         pass_1 = generate_password_hash(answer_3)
         users = Users(name=answer_1, nickname=answer_2, password=pass_1, mail=answer_5)
         db.session.add(users)
