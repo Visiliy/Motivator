@@ -146,10 +146,28 @@ form .signup-link a:hover{
 .error {
     background-color: red;
     width: 30%:
-    background-color: red;
     padding: 10px;
     border-radius: 20px;
+    background-color: red;
     position: absolute;
     text-align: justify;
     color: #fff;
+}
+
+.btn_redirect {
+    position: absolute;
+    right: 5%;
+    width: 120px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: rgb(184, 34, 184);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    bottom: 90%;
+}
+
+.btn_redirect:hover {
+    cursor: pointer;
+    transform: scale(0.9);
 }
