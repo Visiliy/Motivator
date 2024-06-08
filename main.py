@@ -36,13 +36,24 @@ def entrance():
         return render_template('form_3.html', display_none='display: none;')
 
     elif request.method == 'POST':
+        error = ''
         answer_1 = request.form.get('name')
         answer_2 = request.form.get('nickname')
         answer_3 = request.form.get('password')
-        answer_4 = request.form.get('mail')
         answer_1 = answer_1.title()
         answer_2 = answer_2.title()
-        return redirect('/sms_code')
+        nickname = Users.query.filter_by(nickname=answer_2).first()
+        if nickname:
+            if nickname.name == answer_1 and check_password_hash(nickname.password, answer_3):
+                session['name'] = answer_1
+                session['nickname'] = answer_2
+                return redirect('/')
+            else:
+                error = 'Неправльно введены имя и/или пароль'
+                return render_template('form_3.html', error=error)
+        else:
+            error = 'Вас нет в системе, зарегистрируйтесь'
+            return render_template('form_3.html', error=error)
 
 
 @app.route('/registrations', methods=['GET', 'POST'])
