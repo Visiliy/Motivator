@@ -191,6 +191,19 @@ img.background {
     position: relative;
 }
 
+.error_div {
+    position: absolute;
+    background-color: red;
+    top: 95%;
+    left: 30%;
+    transform: translate(+50%, +50%);
+    margin-top: 25.1%;
+    padding: 8px;
+    width: 30%;
+    aspect-ratio: 5/0.5;
+    border-radius: 20px;
+}
+
 .cmaylic:hover {
     transform: scale(1.2);
 }
@@ -213,4 +226,9 @@ img.background {
     transform: scale(0.98);
     background-color: rgb(155, 3, 189);
     border-radius: 20px;
+}
+
+
+.error_div:hover {
+    cursor: pointer;
 }

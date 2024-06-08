@@ -21,13 +21,21 @@ class Users(db.Model):
         return f"<users {self.id}>"
 
 
+@app.route('/exit')
+def exit():
+    session.clear()
+    return redirect("/")
+
+
 @app.route('/')
 def index():
     name = ''
+    sicret_cod = 'no'
     profile = 'profil.png'
     if 'name' in session:
         name = session['name']
-    return render_template('main.html', name=name, profile=profile)
+        sicret_cod = 'yes'
+    return render_template('main.html', name=name, profile=profile, sicret_cod=sicret_cod)
 
 
 @app.route('/entrance', methods=['GET', 'POST'])

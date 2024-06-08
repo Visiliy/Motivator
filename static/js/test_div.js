@@ -9,6 +9,7 @@ const btn_smiley_7 = document.querySelector('#click_7');
 const test_div = document.querySelector('#test_div');
 const span_form = document.querySelector('#span_form');
 const card_form = document.querySelector('#card_form');
+const error_div = document.querySelector('#error_div');
 
 const test_question = document.querySelector('#test_question');
 const label_1 = document.querySelector('#label_1');
@@ -19,6 +20,7 @@ const answer_1 = document.querySelector('#answer_1');
 const answer_2 = document.querySelector('#answer_2');
 const answer_3 = document.querySelector('#answer_3');
 const btn_3 = document.querySelector('#btn_3');
+const sicret_cod = document.querySelector('#sicret_cod');
 
 const string_1 = 'Не волнуйтесь, Вы обязательно поправитесь! Главное - не падайте духом! Улыбнитесь, хорошее настроение помогает быстрее выздороветь!';
 const string_2 = 'Мы рады, что у Вас прекрасное настороение! Желаем, чтобы оно оставалось как можно дольше!';
@@ -36,54 +38,65 @@ let count = 0;
 let num;
 let rate_value = [];
 
-const func = function(array, num_func) {
-    test_div.classList.add('display_none');
-    test_div.classList.remove('display_none');
-    num = num_func;
-
-
-    if (array[0] != undefined) {
-        test_question.innerText = array[0];
+const func = function(array, num_func, sicret_cod) {
+    if (sicret_cod == 'no') {
+        error_div.classList.remove('display_none');
     }
+    else {
+        test_div.classList.add('display_none');
+        test_div.classList.remove('display_none');
+        num = num_func;
 
-    if (array[1] != undefined) {
-        label_1.innerText = array[1];
-        answer_1.value = array[1];
-    }
 
-    if (array[2] != undefined) {
-        label_2.innerText = array[2];
-        answer_2.value = array[2];
+        if (array[0] != undefined) {
+            test_question.innerText = array[0];
+        }
 
-    }
+        if (array[1] != undefined) {
+            label_1.innerText = array[1];
+            answer_1.value = array[1];
+        }
 
-    if (array[3] != undefined) {
-        label_3.innerText = array[3];
-        answer_3.value = array[3];
+        if (array[2] != undefined) {
+            label_2.innerText = array[2];
+            answer_2.value = array[2];
+
+        }
+
+        if (array[3] != undefined) {
+            label_3.innerText = array[3];
+            answer_3.value = array[3];
+        }
     }
 }
 
-const func_2 = function(string) {
-    test_div.classList.add('display_none');
-    card_form.classList.remove('display_none');
+const func_2 = function(string, sicret_cod) {
+    if (sicret_cod == 'no') {
+        error_div.classList.remove('display_none');
+    }
+    else {
+        test_div.classList.add('display_none');
+        card_form.classList.remove('display_none');
 
-    const h2 = document.createElement('h2');
-    const h4 = document.createElement('h4');
-    const btn = document.createElement('button');
+        const h2 = document.createElement('h2');
+        const h4 = document.createElement('h4');
+        const btn = document.createElement('button');
 
-    h2.innerText = 'Пожелания';
-    h2.classList.add('h2_form_div');
+        h2.innerText = 'Пожелания';
+        h2.classList.add('h2_form_div');
 
-    h4.innerText = string;
-    h4.classList.add('h2_form_div');
-    h4.classList.add('margin_top');
+        h4.innerText = string;
+        h4.classList.add('h2_form_div');
+        h4.classList.add('margin_top');
 
-    btn.innerText = 'Окей';
-    btn.classList.add('btn_result');
+        btn.innerText = 'Окей';
+        btn.classList.add('btn_result');
 
-    card_form.append(h2);
-    card_form.append(h4);
-    card_form.append(btn);
+        card_form.append(h2);
+        card_form.append(h4);
+        card_form.append(btn);
+    }
+
 
 }
 
@@ -145,23 +158,23 @@ btn_3.onclick = function() {
 };
 
 btn_smiley_1.onclick = function() {
-    func(array_1, 3), default_object = object_1;
+    func(array_1, 3, sicret_cod.innerHTML), default_object = object_1;
 };
 btn_smiley_2.onclick = function() {
-    func(array_2, 3), default_object = object_2;
+    func(array_2, 3, sicret_cod.innerHTML), default_object = object_2;
 };
 btn_smiley_3.onclick = function() {
-    func_2(string_1);
+    func_2(string_1, sicret_cod.innerHTML);
 };
 btn_smiley_4.onclick = function() {
-    func(array_3, 1), default_object = 0;
+    func(array_3, 1, sicret_cod.innerHTML), default_object = 0;
 };
 btn_smiley_5.onclick = function() {
-    func(array_4, 1), default_object = 0;
+    func(array_4, 1, sicret_cod.innerHTML), default_object = 0;
 };
 btn_smiley_6.onclick = function() {
-    func_2(string_2);
+    func_2(string_2, sicret_cod.innerHTML);
 };
 btn_smiley_7.onclick = function() {
-    func_2(string_3);
+    func_2(string_3, sicret_cod.innerHTML);
 };

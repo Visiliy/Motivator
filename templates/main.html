@@ -19,7 +19,7 @@
 <div class="div_main">
     <img src="/static/img/1680847374_sneg-top-p-motiviruyushchie-kartinki-khoroshego-dnya-54.jpg" class="background" />
     <span class="span_block"><img class="logotip" src="/static/img/motivator_logo.jpg"><span class="motiv">Мотиватор</span></span>
-    <span class="span_btn"><button class="btn_2">О проекте</button><button class="btn_2" id="btn_redirect" style="margin-left: 20px;">Войти</button></span>
+    <span class="span_btn"><a href="/exit"><button class="btn_2">О проекте</button></a><button class="btn_2" id="btn_redirect" style="margin-left: 20px;">Войти</button></span>
     <div class="span_form" id="span_form">
         <center><h3 style="user-select: none;">Оцени своё состояние</h3></center>
         <br style="user-select: none;">
@@ -32,7 +32,7 @@
             <button class="cmaylic" id="click_6"><h2>😀</h2></button>
             <button class="cmaylic" id="click_7"><h2>🥳</h2></button>
         </center>
-
+        <p style="display: none;" id="sicret_cod">{{ sicret_cod }}</p>
     </div>
     <div class="test_div display_none" id="test_div">
         <h2 style="user-select: none;" id="test_question">ми</h2>
@@ -56,6 +56,9 @@
     <div class="card_form display_none position;" id="result">
 
     </div>
+    <a href="/entrance" id="a"><div class="error_div display_none" id="error_div">
+        <center><h3 style="color: #fff;">Вы не авторизованы</h3></center>
+    </div></a>
 <main>
 </main>
 </div>
