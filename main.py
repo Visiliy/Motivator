@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
 from mail import send_mail
+import json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5457fae2a71f9331bf4bf3dd6813f90abeb33839f4608755ce301b9321c671791673817685w47uer6uuu'
@@ -120,6 +121,12 @@ def sms_code():
             return redirect("/")
         else:
             return render_template('SMS_form.html', error='Неправильный код', display_none='')
+
+
+@app.route('/mood/<id>', methods=['GET', 'POST'])
+def mood(id):
+    print(id)
+    return redirect('/')
 
 
 if __name__ == "__main__":

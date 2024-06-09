@@ -37,6 +37,8 @@ let default_object;
 let count = 0;
 let num;
 let rate_value = [];
+let click_namber;
+let btn_ok;
 
 const func = function(array, num_func, sicret_cod) {
     if (sicret_cod == 'no') {
@@ -90,11 +92,16 @@ const func_2 = function(string, sicret_cod) {
         h4.classList.add('margin_top');
 
         btn.innerText = 'Окей';
+        btn.id = 'btn_ok';
         btn.classList.add('btn_result');
 
         card_form.append(h2);
         card_form.append(h4);
         card_form.append(btn);
+
+        btn.onclick = function() {
+            window.location.href=`/mood/${click_namber}`;
+        };
     }
 
 
@@ -123,13 +130,19 @@ btn_3.onclick = function() {
         const btn = document.createElement('button');
 
         btn.innerText = 'Окей';
+        btn.id = 'btn_ok';
         btn.classList.add('btn_result');
+
 
         h2.innerText = 'Пожелания';
         h2.classList.add('h2_form_div');
 
         result.append(h2);
         result.append(btn);
+
+        btn.onclick = function() {
+            window.location.href=`/mood/${click_namber}`;
+        };
 
     }
     else {
@@ -158,23 +171,23 @@ btn_3.onclick = function() {
 };
 
 btn_smiley_1.onclick = function() {
-    func(array_1, 3, sicret_cod.innerHTML), default_object = object_1;
+    func(array_1, 3, sicret_cod.innerHTML), default_object = object_1, click_namber = 1;
 };
 btn_smiley_2.onclick = function() {
-    func(array_2, 3, sicret_cod.innerHTML), default_object = object_2;
+    func(array_2, 3, sicret_cod.innerHTML), default_object = object_2, click_namber = 2;
 };
 btn_smiley_3.onclick = function() {
-    func_2(string_1, sicret_cod.innerHTML);
+    func_2(string_1, sicret_cod.innerHTML), click_namber = 3;
 };
 btn_smiley_4.onclick = function() {
-    func(array_3, 1, sicret_cod.innerHTML), default_object = 0;
+    func(array_3, 1, sicret_cod.innerHTML), default_object = 0, click_namber = 4;
 };
 btn_smiley_5.onclick = function() {
-    func(array_4, 1, sicret_cod.innerHTML), default_object = 0;
+    func(array_4, 1, sicret_cod.innerHTML), default_object = 0, click_namber = 5;
 };
 btn_smiley_6.onclick = function() {
-    func_2(string_2, sicret_cod.innerHTML);
+    func_2(string_2, sicret_cod.innerHTML), click_namber = 6;
 };
 btn_smiley_7.onclick = function() {
-    func_2(string_3, sicret_cod.innerHTML);
+    func_2(string_3, sicret_cod.innerHTML), click_namber = 7;
 };
