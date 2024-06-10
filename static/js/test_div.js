@@ -40,12 +40,16 @@ let rate_value = [];
 let click_namber;
 let btn_ok;
 
+if (hasCookie('permission') == false) {
+    span_form.classList.remove('display_none');
+};
+
 const func = function(array, num_func, sicret_cod) {
     if (sicret_cod == 'no') {
         error_div.classList.remove('display_none');
     }
     else {
-        test_div.classList.add('display_none');
+        span_form.classList.add('display_none');
         test_div.classList.remove('display_none');
         num = num_func;
 
@@ -100,6 +104,7 @@ const func_2 = function(string, sicret_cod) {
         card_form.append(btn);
 
         btn.onclick = function() {
+            document.cookie = 'permission=1;max-age=60';
             window.location.href=`/mood/${click_namber}`;
         };
     }
@@ -141,6 +146,7 @@ btn_3.onclick = function() {
         result.append(btn);
 
         btn.onclick = function() {
+            document.cookie = 'permission=1;max-age=60';
             window.location.href=`/mood/${click_namber}`;
         };
 
@@ -191,3 +197,7 @@ btn_smiley_6.onclick = function() {
 btn_smiley_7.onclick = function() {
     func_2(string_3, sicret_cod.innerHTML), click_namber = 7;
 };
+
+function hasCookie(name) {
+    return document.cookie.split(';').some(c => c.trim().startsWith(name + '='));
+}
