@@ -129,5 +129,10 @@ def mood(id):
     return redirect('/')
 
 
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    return render_template('entrance.html')
+
+
 if __name__ == "__main__":
     app.run()
