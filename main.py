@@ -131,7 +131,8 @@ def mood(id):
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
-    return render_template('entrance.html')
+    if request.method == 'GET':
+        return render_template('entrance.html', name=session['name'])
 
 
 if __name__ == "__main__":

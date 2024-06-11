@@ -1,12 +1,78 @@
-.body {
+body {
     background-image: url("/static/img/zakat_4.jpg");
     background-size: cover;
 }
 
-.div_main {
-    width: 35%;
+aside {
+    float: left;
     background-color: #181818;
-    aspect-ratio: 4/4.5;
-    margin-top: 5%;
+    width: 20%;
+    padding: 1.0%;
+    height: 100vh;
+    color: #fff;
+}
+
+aside img {
+    width: 80px;
+    float: center;
+    height: 80px;
+    user-select: none;
+}
+
+.name {
+    color: #fff;
+    float: center;
+    margin-top: 10px;
+    user-select: none;
+    display: inline-block;
+}
+
+.to_home {
+    float: right;
+    margin: 20px 40px;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
     border-radius: 20px;
+    background-color: rgb(251, 244, 28);
+    width: 110px;
+    user-select: none;
+}
+
+.btn_1 {
+    display: block;
+    width: 150px;
+    -moz-user-select: none;
+    border-radius: 10px;
+    background-color: aqua;
+    color: #000;
+    border: none;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.btn {
+    border-radius: 50%;
+    border: none;
+    background-color: #181818;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    margin-top: -30px;
+    margin-left: -5px;
+}
+
+.to_home:hover {
+    transform: scale(0.9);
+}
+
+.btn_1:hover {
+    transform: scale(1.1);
+    background-color: rgb(171, 14, 206);
+}
+
+.btn:hover {
+    transform: scale(0.9);
 }
