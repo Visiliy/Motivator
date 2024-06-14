@@ -1,5 +1,5 @@
 body {
-    background-image: url("/static/img/zakat_4.jpg");
+    background-image: url("/static/img/zakat_5.jpg");
     background-size: cover;
 }
 
@@ -64,6 +64,42 @@ aside img {
     margin-left: -5px;
 }
 
+.exit {
+    width: 18%;
+    color: red;
+    bottom: 10px;
+    position: absolute;
+    user-select: none;
+    left: 0;
+}
+
+.display_none {
+    display: none;
+}
+
+.form_to_change {
+    position: absolute;
+    background-color: #fff;
+    left: 30%;
+    transform: translate(+50%, +50%);
+    margin-top: 3%;
+    padding: 8px;
+    width: 30%;
+    aspect-ratio: 1/0.9;
+    border-radius: 20px;
+}
+
+.apply {
+    border-radius: 10px;
+    width: 100px;
+    padding: 6px;
+    user-select: none;
+    background-color: aqua;
+    border: none;
+    margin-top: 20px;
+
+}
+
 .to_home:hover {
     transform: scale(0.9);
 }
@@ -75,4 +111,8 @@ aside img {
 
 .btn:hover {
     transform: scale(0.9);
+}
+
+.apply:hover {
+    transform: scale(0.98);
 }

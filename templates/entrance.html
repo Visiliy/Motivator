@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}{% endblock %}</title>
+    <title>Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/style_2.css">
 </head>
@@ -15,7 +15,12 @@
     <center><button class="btn_1" style="margin-top: 36px;">Тренажер</button></center>
     <center><button class="btn_1" style="margin-top: 36px;">Упражнения</button></center>
     <center><button class="btn_1" style="margin-top: 36px;">Достижения</button></center>
+    <a href="/exit" class="exit">Выйти</a>
 </aside>
+<div class="form_to_change" id="form_to_change">
+    <center><button style="border-radius: 50%; background-color: #fff; border: none;"><img style="border-radius: 50%; " src="/static/img/profil.png"></button></center>
+    <center><button class="apply">Применить</button></center>
+</div>
 <main>
     <a href="/"><button class="to_home">На главную</button></a>
 </main>
