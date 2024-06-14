@@ -97,7 +97,7 @@ def registrations():
 @app.route('/sms_code', methods=['GET', 'POST'])
 def sms_code():
     if request.method == 'GET':
-        cod = random.randint(10000, 100000)
+        cod = random.randint(10000, 99999)
         session['cod'] = str(cod)
         email = session['mail']
         if send_mail(email, 'Код подтверждения', f'Ваш код: {cod}'):

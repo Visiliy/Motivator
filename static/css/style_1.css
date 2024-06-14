@@ -204,6 +204,14 @@ img.background {
     border-radius: 20px;
 }
 
+.h5 {
+    background-color: red;
+    padding: 8px;
+    border-radius: 20px;
+    margin-top: 16%;
+    color: #fff;
+}
+
 .cmaylic:hover {
     transform: scale(1.2);
 }
@@ -230,5 +238,13 @@ img.background {
 
 
 .error_div:hover {
+    cursor: pointer;
+}
+
+.href:hover {
+    cursor: pointer;
+}
+
+.h5:hover {
     cursor: pointer;
 }
