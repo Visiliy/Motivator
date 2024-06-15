@@ -9,20 +9,47 @@
 <body>
 <aside class="">
     <center><img src="/static/img/profil.png" alt="It img" style="border-radius: 50%"></center>
-    <center><h3 class="name">{{ name }}</h3><button class="btn"><img src="/static/img/pdr.png" style="width: 25px; height: 25px;"></button></center>
-    <center><button class="btn_1" style="margin-top: 100px;">Курсы</button></center>
-    <center><button class="btn_1" style="margin-top: 36px;">Цели</button></center>
-    <center><button class="btn_1" style="margin-top: 36px;">Тренажер</button></center>
-    <center><button class="btn_1" style="margin-top: 36px;">Упражнения</button></center>
-    <center><button class="btn_1" style="margin-top: 36px;">Достижения</button></center>
+    <center><h3 class="name">{{ name }}</h3>
+        <button class="btn" id="btn"><img src="/static/img/pdr.png" style="width: 25px; height: 25px;"></button>
+    </center>
+    <center>
+        <button class="btn_1" style="margin-top: 100px;">Курсы</button>
+    </center>
+    <center>
+        <button class="btn_1" style="margin-top: 36px;">Цели</button>
+    </center>
+    <center>
+        <button class="btn_1" style="margin-top: 36px;">Тренажер</button>
+    </center>
+    <center>
+        <button class="btn_1" style="margin-top: 36px;">Упражнения</button>
+    </center>
+    <center>
+        <button class="btn_1" style="margin-top: 36px;">Достижения</button>
+    </center>
     <a href="/exit" class="exit">Выйти</a>
 </aside>
-<div class="form_to_change" id="form_to_change">
-    <center><button style="border-radius: 50%; background-color: #fff; border: none;"><img style="border-radius: 50%; " src="/static/img/profil.png"></button></center>
-    <center><button class="apply">Применить</button></center>
+<div class="form_to_change display_none" id="form_to_change">
+    <form>
+    <center>
+        <button style="border-radius: 50%; background-color: #fff; border: none;"><img style="border-radius: 50%; "
+                                                                                       src="/static/img/profil.png">
+        </button>
+    </center>
+    <center>
+        <button type="submit" class="apply">Применить</button>
+    </center>
+    </form>
+    <form>
+    <center><input name="new_name" class="new_name" type="text" placeholder="Новое имя"></center>
+    <center><button type="submit" class="apply_2">Применить</button></center>
+    </form>
 </div>
 <main>
-    <a href="/"><button class="to_home">На главную</button></a>
+    <a href="/">
+        <button class="to_home">На главную</button>
+    </a>
 </main>
+<script src="/static/js/form.js"></script>
 </body>
 </html>

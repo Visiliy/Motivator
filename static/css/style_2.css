@@ -80,13 +80,14 @@ aside img {
 .form_to_change {
     position: absolute;
     background-color: #fff;
-    left: 30%;
+    left: 40%;
     transform: translate(+50%, +50%);
     margin-top: 3%;
     padding: 8px;
-    width: 30%;
-    aspect-ratio: 1/0.9;
+    width: 20%;
+    aspect-ratio: 1/1.2;
     border-radius: 20px;
+    user-select: none;
 }
 
 .apply {
@@ -97,6 +98,24 @@ aside img {
     background-color: aqua;
     border: none;
     margin-top: 20px;
+
+}
+
+.apply_2 {
+    border-radius: 10px;
+    width: 80%;
+    padding: 6px;
+    user-select: none;
+    background-color: aqua;
+    border: none;
+    margin-top: 10%;
+}
+
+.new_name {
+    margin-top: 35%;
+    width: 80%;
+    aspect-ratio: 5/0.6;
+    border-radius: 10px;
 
 }
 
@@ -114,5 +133,9 @@ aside img {
 }
 
 .apply:hover {
+    transform: scale(0.98);
+}
+
+.apply_2:hover {
     transform: scale(0.98);
 }
