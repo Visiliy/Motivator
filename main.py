@@ -1,14 +1,18 @@
 from flask import Flask, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
 from mail import send_mail
-import json
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5457fae2a71f9331bf4bf3dd6813f90abeb33839f4608755ce301b9321c671791673817685w47uer6uuu'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
+UPLOAD_FOLDER = 'static/img/'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 class Users(db.Model):
@@ -21,6 +25,11 @@ class Users(db.Model):
 
     def __repr__(self):
         return f"<users {self.id}>"
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 @app.route('/exit')
@@ -137,10 +146,32 @@ def mood(id):
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
-        return render_template('entrance.html', name=session['name'])
+        return render_template('entrance.html', name=session['name'], profil=session['avatar'])
+    elif request.method == 'POST':
+        if request.form.get('new_name') is None:
+            if 'file' not in request.files:
+                print('ok_1')
+                return redirect(request.url)
+            file = request.files['file']
+            if file.filename == '':
+                print('ok_2')
+                return redirect(request.url)
+            if file and allowed_file(file.filename):
+                print('ok_3')
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                session['avatar'] = filename
+                num_rows_updated = Users.query.filter_by(nickname=session['nickname']).update(
+                    dict(avatar=session['avatar']))
+                db.session.commit()
+                return render_template('entrance.html', name=session['name'], profil=session['avatar'])
+        else:
+            new_name = request.form.get('new_name')
+            num_rows_updated = Users.query.filter_by(nickname=session['nickname']).update(
+                dict(name=new_name))
+            session['name'] = new_name
+            db.session.commit()
 
 
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
     app.run()

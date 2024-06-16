@@ -8,7 +8,7 @@
 </head>
 <body>
 <aside class="">
-    <center><img src="/static/img/profil.png" alt="It img" style="border-radius: 50%"></center>
+    <center><img src="/static/img/{{ profil }}" alt="It img" style="border-radius: 50%" width="100" height="100"></center>
     <center><h3 class="name">{{ name }}</h3>
         <button class="btn" id="btn"><img src="/static/img/pdr.png" style="width: 25px; height: 25px;"></button>
     </center>
@@ -30,18 +30,17 @@
     <a href="/exit" class="exit">Выйти</a>
 </aside>
 <div class="form_to_change display_none" id="form_to_change">
-    <form>
+    <form method="post" enctype="multipart/form-data">
     <center>
-        <button style="border-radius: 50%; background-color: #fff; border: none;"><img style="border-radius: 50%; "
-                                                                                       src="/static/img/profil.png">
-        </button>
+        <label style="">
+            <input type="file" name="file" style="display: none;" multiple>
+            <img style="border-radius: 50%; " src="/static/img/{{ profil }}" width="100" height="100">
+        </label>
     </center>
     <center>
         <button type="submit" class="apply">Применить</button>
     </center>
-    </form>
-    <form>
-    <center><input name="new_name" class="new_name" type="text" placeholder="Новое имя"></center>
+    <center><input name="new_name" class="new_name" type="text" placeholder="Новое имя" value=""></center>
     <center><button type="submit" class="apply_2">Применить</button></center>
     </form>
 </div>
