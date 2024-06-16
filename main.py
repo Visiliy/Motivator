@@ -17,6 +17,7 @@ class Users(db.Model):
     nickname = db.Column(db.String(30))
     password = db.Column(db.String(30))
     mail = db.Column(db.String(100))
+    avatar = db.Column(db.String(200))
 
     def __repr__(self):
         return f"<users {self.id}>"
@@ -36,6 +37,8 @@ def index():
     if 'name' in session:
         name = session['name']
         sicret_cod = 'yes'
+    if 'avatar' in session:
+        profile = session['avatar']
     return render_template('main.html', name=name, profile=profile, sicret_cod=sicret_cod)
 
 
@@ -56,6 +59,7 @@ def entrance():
             if nickname.name == answer_1 and check_password_hash(nickname.password, answer_3):
                 session['name'] = answer_1
                 session['nickname'] = answer_2
+                session['avatar'] = nickname.avatar
                 return redirect('/')
             else:
                 error = 'Неправльно введены имя и/или пароль'
@@ -114,10 +118,11 @@ def sms_code():
         if cod == session['cod']:
             session.pop('cod')
             users = Users(name=session['name'], nickname=session['nickname'], password=session['password'],
-                          mail=session['mail'])
+                          mail=session['mail'], avatar='profil.png')
             db.session.add(users)
             db.session.flush()
             db.session.commit()
+            session['avatar'] = 'profil.png'
             return redirect("/")
         else:
             return render_template('SMS_form.html', error='Неправильный код', display_none='')
@@ -136,4 +141,6 @@ def home():
 
 
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
     app.run()
