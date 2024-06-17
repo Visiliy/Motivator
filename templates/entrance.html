@@ -8,9 +8,10 @@
 </head>
 <body>
 <aside class="">
-    <center><img src="/static/img/{{ profil }}" alt="It img" style="border-radius: 50%" width="100" height="100"></center>
+    <center><img src="/static/img/{{ profil }}" alt="It img" style="border-radius: 50%" width="100" height="100">
+    </center>
     <center><h3 class="name">{{ name }}</h3>
-        <button class="btn" id="btn"><img src="/static/img/pdr.png" style="width: 25px; height: 25px;"></button>
+        <button class="btn" id="btn"><img src="/static/img/pdr.png" style="width: 20px; height: 20px;"></button>
     </center>
     <center>
         <button class="btn_1" style="margin-top: 100px;">Курсы</button>
@@ -31,17 +32,21 @@
 </aside>
 <div class="form_to_change display_none" id="form_to_change">
     <form method="post" enctype="multipart/form-data">
-    <center>
-        <label style="">
-            <input type="file" name="file" style="display: none;" multiple>
-            <img style="border-radius: 50%; " src="/static/img/{{ profil }}" width="100" height="100">
-        </label>
-    </center>
-    <center>
-        <button type="submit" class="apply">Применить</button>
-    </center>
-    <center><input name="new_name" class="new_name" type="text" placeholder="Новое имя" value=""></center>
-    <center><button type="submit" class="apply_2">Применить</button></center>
+        <center>
+            <label style="">
+                <input type="file" name="file" style="display: none;" multiple>
+                <img style="border-radius: 50%; " src="/static/img/{{ profil }}" width="100" height="100">
+            </label>
+        </center>
+        <center>
+            <button type="submit" class="apply">Применить</button>
+        </center>
+    </form>
+    <form method="post">
+        <center><input name="new_name" class="new_name" type="text" placeholder="Новое имя" value="" max="10"></center>
+        <center>
+            <button type="submit" class="apply_2">Применить</button>
+        </center>
     </form>
 </div>
 <main>

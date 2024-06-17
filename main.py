@@ -148,7 +148,7 @@ def home():
     if request.method == 'GET':
         return render_template('entrance.html', name=session['name'], profil=session['avatar'])
     elif request.method == 'POST':
-        if request.form.get('new_name') is None:
+        if request.form.get('new_name') == None:
             if 'file' not in request.files:
                 print('ok_1')
                 return redirect(request.url)
@@ -171,7 +171,10 @@ def home():
                 dict(name=new_name))
             session['name'] = new_name
             db.session.commit()
+            return render_template('entrance.html', name=session['name'], profil=session['avatar'])
 
 
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
     app.run()
