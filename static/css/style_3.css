@@ -22,11 +22,11 @@
     content: "";
     position: absolute;
     border-radius: 50%;
-    animation-duration: 5s;
+    animation-duration: 6s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
 
-    -webkit-animation-duration: 5s;
+    -webkit-animation-duration: 6s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: ease-in-out;
 
@@ -93,8 +93,7 @@
 
 .preloader_div {
     position: absolute;
-    margin-top: 25%;
-
+    bottom: 23%;
 }
 
 .btn_preloader {
@@ -144,7 +143,28 @@
 .preloader_div_2 {
     position: absolute;
     margin-top: 25%;
+}
 
+.h1_div {
+    position: absolute;
+    top: 5%;
+}
+
+.inhale_and_exhale {
+    position: absolute;
+    top: 25%;
+}
+
+.text {
+    color: #fff;
+    user-select: none;
+}
+
+.btn_to_home {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    border-radius: 20px;
 }
 
 .btn_preloader:active {
