@@ -37,6 +37,7 @@ aside img {
     background-color: rgb(251, 244, 28);
     width: 110px;
     user-select: none;
+    transition: transform .3s ease;
 }
 
 .btn_1 {
@@ -51,6 +52,7 @@ aside img {
     font-size: 18px;
     font-weight: bold;
     user-select: none;
+    transition: transform .3s ease;
 }
 
 .btn {
@@ -128,10 +130,10 @@ aside img {
     background-color: rgb(171, 14, 206);
 }
 
-.apply:hover {
-    transform: scale(0.98);
+.apply:active {
+    transform: scale(0.95);
 }
 
-.apply_2:hover {
-    transform: scale(0.98);
+.apply_2:active {
+    transform: scale(0.95);
 }

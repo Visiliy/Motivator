@@ -42,6 +42,7 @@ main .features {
     font-size: 18px;
     font-weight: bold;
     user-select: none;
+    transition: transform .3s ease;
 }
 
 img.background {
@@ -98,6 +99,7 @@ img.background {
     padding: 8px;
     background-color: rgb(251, 244, 28);
     user-select: none;
+    transition: transform .3s ease;
 }
 
 .span_form {

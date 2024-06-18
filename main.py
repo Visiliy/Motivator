@@ -174,7 +174,15 @@ def home():
             return render_template('entrance.html', name=session['name'], profil=session['avatar'])
 
 
+@app.route('/preloader', methods=['GET', 'POST'])
+def preloader():
+    return render_template('prelooder.html')
+
+
+@app.route('/charts', methods=['GET', 'POST'])
+def charts():
+    return render_template('charts.html')
+
+
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
     app.run()
