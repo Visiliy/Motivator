@@ -22,6 +22,7 @@ class Users(db.Model):
     password = db.Column(db.String(30))
     mail = db.Column(db.String(100))
     avatar = db.Column(db.String(200))
+    charts = db.Column(db.String())
 
     def __repr__(self):
         return f"<users {self.id}>"
