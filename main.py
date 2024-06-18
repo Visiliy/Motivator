@@ -140,7 +140,14 @@ def sms_code():
 
 @app.route('/mood/<id>', methods=['GET', 'POST'])
 def mood(id):
-    print(id)
+    nickname = Users.query.filter_by(nickname=session['nickname']).first()
+    charts_str = ''
+    if nickname.charts != None:
+        charts_str = nickname.charts
+    charts_str += str(id)
+    num_rows_updated = Users.query.filter_by(nickname=session['nickname']).update(
+        dict(charts=charts_str))
+    db.session.commit()
     return redirect('/')
 
 
@@ -182,7 +189,32 @@ def preloader():
 
 @app.route('/charts', methods=['GET', 'POST'])
 def charts():
-    return render_template('charts.html')
+    nickname = Users.query.filter_by(nickname=session['nickname']).first()
+    charts_str = ''
+    if nickname.charts != None:
+        charts_str = nickname.charts
+        level_1 = charts_str.count('1')
+        level_2 = charts_str.count('2')
+        level_3 = charts_str.count('3')
+        level_4 = charts_str.count('4')
+        level_5 = charts_str.count('5')
+        level_6 = charts_str.count('6')
+        level_7 = charts_str.count('7')
+        len_str = len(charts_str)
+        percentage_ratio_1 = int(level_1 / len_str * 100)
+        percentage_ratio_2 = int(level_2 / len_str * 100)
+        percentage_ratio_3 = int(level_3 / len_str * 100)
+        percentage_ratio_4 = int(level_4 / len_str * 100)
+        percentage_ratio_5 = int(level_5 / len_str * 100)
+        percentage_ratio_6 = int(level_6 / len_str * 100)
+        percentage_ratio_7 = 100 - (
+                percentage_ratio_1 + percentage_ratio_2 + percentage_ratio_3 + percentage_ratio_4 + percentage_ratio_5 + percentage_ratio_6)
+        return render_template('charts.html', error='', percentage_ratio_1=percentage_ratio_1,
+                               percentage_ratio_2=percentage_ratio_2, percentage_ratio_3=percentage_ratio_3,
+                               percentage_ratio_4=percentage_ratio_4, percentage_ratio_5=percentage_ratio_5,
+                               percentage_ratio_6=percentage_ratio_6, percentage_ratio_7=percentage_ratio_7)
+    else:
+        return render_template('charts.html', error='Вы не ответили ни на один из вопросов')
 
 
 if __name__ == "__main__":

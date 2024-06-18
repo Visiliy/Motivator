@@ -104,7 +104,7 @@ const func_2 = function(string, sicret_cod) {
         card_form.append(btn);
 
         btn.onclick = function() {
-            document.cookie = 'permission=1;max-age=60';
+            document.cookie = 'permission=1;max-age=10';
             window.location.href=`/mood/${click_namber}`;
         };
     }

@@ -8,41 +8,45 @@
 </head>
 <body>
 <center><h1 style="margin-top: 2%;">График настроения</h1></center>
-<center><div class="simple-bar-chart">
+{% if error == '' %}
+    <center><div class="simple-bar-chart">
 
-    <div class="item" style="--clr: #5EB344; --val: 80">
-        <div class="label"><h3>😭</h3></div>
-        <div class="value"></div>
-    </div>
+        <div class="item" style="--clr: #5EB344; --val: {{ percentage_ratio_1 }}">
+            <div class="label"><h3>😭</h3></div>
+            <div class="value"></div>
+        </div>
 
-    <div class="item" style="--clr: #FCB72A; --val: 50">
-        <div class="label"><h3>☹</h3></div>
-        <div class="value"></div>
-    </div>
+        <div class="item" style="--clr: #FCB72A; --val: {{ percentage_ratio_2 }}">
+            <div class="label"><h3>☹</h3></div>
+            <div class="value"></div>
+        </div>
 
-    <div class="item" style="--clr: #F8821A; --val: 100">
-        <div class="label"><h3>🤒</h3></div>
-        <div class="value"></div>
-    </div>
+        <div class="item" style="--clr: #F8821A; --val: {{ percentage_ratio_3 }}">
+            <div class="label"><h3>🤒</h3></div>
+            <div class="value"></div>
+        </div>
 
-    <div class="item" style="--clr: #E0393E; --val: 15">
-        <div class="label"><h3>😞</h3></div>
-        <div class="value"></div>
-    </div>
+        <div class="item" style="--clr: #E0393E; --val: {{ percentage_ratio_4 }}">
+            <div class="label"><h3>😞</h3></div>
+            <div class="value"></div>
+        </div>
 
-    <div class="item" style="--clr: #963D97; --val: 10">
-        <div class="label"><h3>😐</h3></div>
-        <div class="value"></div>
-    </div>
+        <div class="item" style="--clr: #963D97; --val: {{ percentage_ratio_5 }}">
+            <div class="label"><h3>😐</h3></div>
+            <div class="value"></div>
+        </div>
 
-    <div class="item" style="--clr: #069CDB; --val: 90">
-        <div class="label"><h3>😀</h3></div>
-        <div class="value"></div>
-    </div>
-    <div class="item" style="--clr: blue; --val: 55">
-        <div class="label"><h3>🥳</h3></div>
-        <div class="value"></div>
-    </div>
-</div></center>
+        <div class="item" style="--clr: #069CDB; --val: {{ percentage_ratio_6 }}">
+            <div class="label"><h3>😀</h3></div>
+            <div class="value"></div>
+        </div>
+        <div class="item" style="--clr: blue; --val: {{ percentage_ratio_7 }}">
+            <div class="label"><h3>🥳</h3></div>
+            <div class="value"></div>
+        </div>
+    </div></center>
+{% else %}
+    <h3 style="color: red;">{{ error }}</h3>
+{% endif %}
 </body>
 </html>
