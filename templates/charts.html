@@ -8,8 +8,12 @@
 </head>
 <body>
 <center><h1 style="margin-top: 2%;">График настроения</h1></center>
+<a href="/home">
+    <button class="btn_2">На главную</button>
+</a>
 {% if error == '' %}
-    <center><div class="simple-bar-chart">
+<center>
+    <div class="simple-bar-chart">
 
         <div class="item" style="--clr: #5EB344; --val: {{ percentage_ratio_1 }}">
             <div class="label"><h3>😭</h3></div>
@@ -44,9 +48,11 @@
             <div class="label"><h3>🥳</h3></div>
             <div class="value"></div>
         </div>
-    </div></center>
+    </div>
+</center>
 {% else %}
-    <h3 style="color: red;">{{ error }}</h3>
+<center><h3 style="padding: 8px; background-color: red; border-radius: 20px; display: inline-block;">{{ error }}</h3>
+</center>
 {% endif %}
 </body>
 </html>

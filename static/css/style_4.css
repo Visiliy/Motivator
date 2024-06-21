@@ -20,6 +20,20 @@
     user-select: none;
 }
 
+.btn_2 {
+    position: absolute;
+    width: 120px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgb(184, 34, 184);
+    color: #fff;
+    top: 5%;
+    right: 3%;
+    transition: transform .3s ease;
+    user-select: none;
+}
+
 .simple-bar-chart::after{
     content: "";
     position: absolute;
@@ -42,3 +56,7 @@
 .simple-bar-chart > .item > * { position: absolute; text-align: center }
 .simple-bar-chart > .item > .label { inset: 100% 0 auto 0 }
 .simple-bar-chart > .item > .value { inset: auto 0 100% 0 }
+
+.btn_2:hover {
+    transform: scale(0.9);
+}
