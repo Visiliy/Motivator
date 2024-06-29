@@ -121,6 +121,17 @@ aside img {
 
 }
 
+.quotes {
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 6px;
+    margin-left: 10px;
+    display: inline-block;
+    color: black;
+    user-select: none;
+}
+
 .to_home:hover {
     transform: scale(0.9);
 }

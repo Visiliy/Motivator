@@ -153,33 +153,35 @@ def mood(id):
 
 @app.route('/home', methods=['GET', 'POST'])
 def home():
+    with open("instance/quotes.txt", "r", encoding="utf-8") as file:
+        file_list = file.readlines()
+        len_list = len(file_list)
+        random_text = file_list[random.randint(0, len_list) - 1]
     if request.method == 'GET':
-        return render_template('entrance.html', name=session['name'], profil=session['avatar'])
+        return render_template('entrance.html', name=session['name'], profil=session['avatar'], quotes=random_text)
     elif request.method == 'POST':
         if request.form.get('new_name') == None:
             if 'file' not in request.files:
-                print('ok_1')
                 return redirect(request.url)
             file = request.files['file']
             if file.filename == '':
-                print('ok_2')
                 return redirect(request.url)
             if file and allowed_file(file.filename):
-                print('ok_3')
                 filename = secure_filename(file.filename)
                 file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
                 session['avatar'] = filename
                 num_rows_updated = Users.query.filter_by(nickname=session['nickname']).update(
                     dict(avatar=session['avatar']))
                 db.session.commit()
-                return render_template('entrance.html', name=session['name'], profil=session['avatar'])
+                return render_template('entrance.html', name=session['name'], profil=session['avatar'],
+                                       quotes=random_text)
         else:
             new_name = request.form.get('new_name')
             num_rows_updated = Users.query.filter_by(nickname=session['nickname']).update(
                 dict(name=new_name))
             session['name'] = new_name
             db.session.commit()
-            return render_template('entrance.html', name=session['name'], profil=session['avatar'])
+            return render_template('entrance.html', name=session['name'], profil=session['avatar'], quotes=random_text)
 
 
 @app.route('/preloader', methods=['GET', 'POST'])
