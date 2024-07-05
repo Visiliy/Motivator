@@ -2,14 +2,75 @@
     width: 8%;
     height: 40%;
     margin-top: 8%;
-    left: 50%;
+    margin-left: 46%;
+    user-select: none;
 }
 
-.span {
-    display: inline-block;
-    width: 15%;
-    background-color: aqua;
-    border-radius: 50%;
-    padding: 8px;
-    margin-left: 200px;
+.bubble {
+    position: relative;
+    width: 20%;
+    text-align: center;
+    margin: 40px auto;
+    background-color: #fff;
+    border: 8px solid #960ccc;
+    border-radius: 30px;
+    font-family: sans-serif;
+    padding: 10px;
+    font-size: 18px;
+    height: 160px;
+    margin-top: 0;
+    margin-left: -2%;
+    user-select: none;
+}
+
+.bubble:before,
+.bubble:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+.speech:after {
+    left: 38px;
+    bottom: -30px;
+    border: 15px solid;
+    border-color: #fff transparent transparent #fff;
+}
+
+.speech:before {
+    left: 30px;
+    bottom: -50px;
+    border: 25px solid;
+    border-color: #960ccc transparent transparent #960ccc;
+}
+
+
+.wrapper {
+    display: flex;
+    user-select: none;
+}
+
+.btn_1 {
+    border: none;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #960ccc;
+    color: #fff;
+    user-select: none;
+}
+
+.div_1 {
+    width: 40%;
+    background-color: #960ccc;
+    border-radius: 20px;
+    margin-top: 2%;
+    aspect-ratio: 4 / 1.2;
+    color: #fff;
+    user-select: none;
+
+}
+
+.btn_1:active {
+    transform: scale(0.95);
 }
