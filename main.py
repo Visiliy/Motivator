@@ -176,7 +176,7 @@ def home():
                 return render_template('entrance.html', name=session['name'], profil=session['avatar'],
                                        quotes=random_text)
         else:
-            new_name = request.form.get('new_name')
+            new_name = request.form.get('new_name').title()
             num_rows_updated = Users.query.filter_by(nickname=session['nickname']).update(
                 dict(name=new_name))
             session['name'] = new_name
@@ -220,4 +220,6 @@ def charts():
 
 
 if __name__ == "__main__":
+    # with app.app_context():
+    #     db.create_all()
     app.run()
