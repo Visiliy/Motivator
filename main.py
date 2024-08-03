@@ -3,7 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
-from mail import send_mail
+
+from Sistem_Classes_and_Methods.User_Authorization import UserAuthorization
+from Sistem_Classes_and_Methods.mail import send_mail
 import os
 
 app = Flask(__name__)
@@ -28,7 +30,7 @@ class Users(db.Model):
         return f"<users {self.id}>"
 
 
-def allowed_file(filename):
+def allowed_file(filename: str) -> bool:
     return '.' in filename and \
         filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
@@ -58,25 +60,20 @@ def entrance():
         return render_template('form_3.html', display_none='display: none;')
 
     elif request.method == 'POST':
-        error = ''
         answer_1 = request.form.get('name')
         answer_2 = request.form.get('nickname')
         answer_3 = request.form.get('password')
         answer_1 = answer_1.title()
         answer_2 = answer_2.title()
-        nickname = Users.query.filter_by(nickname=answer_2).first()
-        if nickname:
-            if nickname.name == answer_1 and check_password_hash(nickname.password, answer_3):
-                session['name'] = answer_1
-                session['nickname'] = answer_2
-                session['avatar'] = nickname.avatar
-                return redirect('/')
-            else:
-                error = 'Неправльно введены имя и/или пароль'
-                return render_template('form_3.html', error=error)
+        check = UserAuthorization(answer_1, answer_2, answer_3, Users)
+        answer = check.user_is_registered()
+        if type(answer[0]) == bool:
+            session['name'] = answer_1
+            session['nickname'] = answer_2
+            session['avatar'] = answer[1]
+            return redirect('/')
         else:
-            error = 'Вас нет в системе, зарегистрируйтесь'
-            return render_template('form_3.html', error=error)
+            return render_template('form_3.html', error=answer[0])
 
 
 @app.route('/registrations', methods=['GET', 'POST'])
@@ -101,7 +98,7 @@ def registrations():
         if error != '':
             return render_template('form_2.html', display_none='', error=error)
         pass_1 = generate_password_hash(answer_3)
-        session['name'] = answer_1
+        session['user_name'] = answer_1
         session['nickname'] = answer_2
         session['password'] = pass_1
         session['mail'] = answer_5
@@ -127,12 +124,13 @@ def sms_code():
         cod = f'{cod_1}{cod_2}{cod_3}{cod_4}{cod_5}'
         if cod == session['cod']:
             session.pop('cod')
-            users = Users(name=session['name'], nickname=session['nickname'], password=session['password'],
+            users = Users(name=session['user_name'], nickname=session['nickname'], password=session['password'],
                           mail=session['mail'], avatar='profil.png')
             db.session.add(users)
             db.session.flush()
             db.session.commit()
             session['avatar'] = 'profil.png'
+            session['name'] = session['user_name']
             return redirect("/")
         else:
             return render_template('SMS_form.html', error='Неправильный код', display_none='')
